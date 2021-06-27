@@ -1,0 +1,28 @@
+{
+  "name": "ssb-chess-browser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify index.js -o dist/chess.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/happy0/ssb-chess-browser.git"
+  },
+  "author": "Gordon Martin",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/happy0/ssb-chess-browser/issues"
+  },
+  "homepage": "https://github.com/happy0/ssb-chess-browser#readme",
+  "dependencies": {
+    "ssb-browser-core": "^10.0.12",
+    "ssb-caps": "^1.1.0",
+    "ssb-chess-mithril": "^2.0.2"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0"
+  }
+}
