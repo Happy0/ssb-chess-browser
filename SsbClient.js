@@ -18,14 +18,16 @@ module.exports = function getClient() {
     },
     connections: {
       incoming: {
-        tunnel: [{ scope: 'public', transform: 'shs' }]
+        tunnel: [{ scope: 'public', transform: 'shs' }],
+        dht: [{ scope: 'public', transform: 'shs' }]
       },
       outgoing: {
         net: [{ transform: 'shs' }],
         ws: [{ transform: 'shs' }, { transform: 'noauth' }],
-        tunnel: [{ transform: 'shs' }]
+        tunnel: [{ transform: 'shs' }],
+        dht: [{ transform: 'shs' }]
       }
-    },
+    } ,
     hops: 1,
     conn: {
       autostart: false,
