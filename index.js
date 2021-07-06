@@ -1,21 +1,21 @@
 const getClient = require('./SsbClient');
+const clientPromise = getClient();
+const { SbotBrowserCore } = require('ssb-chess-data-access');
 
-getClient().then(sbot => {
-    console.log("huh")
 
-    const dhtInvite = sbot.net.dhtInvite
-    dhtInvite.start((err, result) => {
-            console.log("hm")
+const attachToId = "ssb-chess-browser";
 
-            setTimeout(() => {
-                dhtInvite.create((err, invite) => {
-                    console.log(":o")
-                    console.log(invite);
-                    console.log("o:")
-                })
-            }, 5000)
+window.addEventListener('load', (event) => {
+    const attachToElement = document.getElementById(attachToId);
 
-            
-    })
+    if (!attachToElement) {
+        console.error(`No element with ID ${attachToId} to attach to`);
+        return;
+    } else {
+        clientPromise.then(client => {
+            const ssbDataAccess = SbotBrowserCore(client);
+            renderUI(attachToElement, ssbDataAccess);
+        });
+    }
+});
 
-}).catch(e => console.log("Exception " + e))

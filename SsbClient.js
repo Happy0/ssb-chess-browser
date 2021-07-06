@@ -27,7 +27,7 @@ module.exports = function getClient() {
         tunnel: [{ transform: 'shs' }],
         dht: [{ transform: 'shs' }]
       }
-    } ,
+    },
     hops: 1,
     conn: {
       autostart: false,
@@ -41,14 +41,6 @@ module.exports = function getClient() {
     ssbSingleton.init(config, extraModules, () => {
       console.log("giving back the hingmy that I promised")
       resolve(window.singletonSSB)
-
-      // ssbSingleton.getSSBEventually(-1, () => true, /** ??? **/ () => true /*???*/,  (err, sbot) => {
-      //     if (err) {
-      //         reject(err);
-      //     } else {
-      //         resolve(sbot);
-      //     }
-      // })
     })
   })
 
@@ -58,8 +50,19 @@ module.exports = function getClient() {
     (SSB) => { return SSB },
     (err, SSB) => {
       console.log("got SSB")
+      console.log(SSB)
     }
   )
 
-  return p
+  return p.then(sbot => {
+    return new Promise((resolve, reject) => {
+      sbot.net.dhtInvite.start((err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(sbot);
+        }
+      });
+    })
+  })
 }
