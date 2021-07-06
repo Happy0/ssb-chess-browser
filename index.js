@@ -1,7 +1,7 @@
 const getClient = require('./SsbClient');
 const clientPromise = getClient();
 const { SbotBrowserCore } = require('ssb-chess-data-access');
-
+const renderUI = require('ssb-chess-mithril')
 
 const attachToId = "ssb-chess-browser";
 
@@ -13,7 +13,7 @@ window.addEventListener('load', (event) => {
         return;
     } else {
         clientPromise.then(client => {
-            const ssbDataAccess = SbotBrowserCore(client);
+            const ssbDataAccess = new SbotBrowserCore(client);
             renderUI(attachToElement, ssbDataAccess);
         });
     }

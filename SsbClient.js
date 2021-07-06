@@ -6,7 +6,22 @@ function getCaps() {
 }
 
 function extraModules(secretStack) {
-    return secretStack;
+  return secretStack.use({
+    init: function (sbot, config) {
+      sbot.db.registerIndex(require('ssb-db2/indexes/full-mentions'))
+    }
+  })
+  .use({
+    init: function (sbot, config) {
+      sbot.db.registerIndex(require('ssb-db2/indexes/about-self'))
+    }
+  })
+  .use({
+    init: function (sbot, config) {
+      sbot.db.registerIndex(require('./indexes/channels'))
+    }
+  })
+  .use(require("ssb-threads"))
 }
 
 module.exports = function getClient() {
