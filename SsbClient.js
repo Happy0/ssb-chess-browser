@@ -16,12 +16,6 @@ function extraModules(secretStack) {
       sbot.db.registerIndex(require('ssb-db2/indexes/about-self'))
     }
   })
-  .use({
-    init: function (sbot, config) {
-      sbot.db.registerIndex(require('./indexes/channels'))
-    }
-  })
-  .use(require("ssb-threads"))
 }
 
 module.exports = function getClient() {
