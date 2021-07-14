@@ -1,6 +1,6 @@
 {
   "name": "ssb-chess-browser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "ssb-browser-core": "^10.0.12",
     "ssb-caps": "^1.1.0",
     "ssb-chess-data-access": "2.1.2",
-    "ssb-chess-mithril": "^2.0.4"
+    "ssb-chess-mithril": "2.0.5"
   },
   "devDependencies": {
     "watchify": "^4.0.0",
