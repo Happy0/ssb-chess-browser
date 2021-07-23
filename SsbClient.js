@@ -42,7 +42,10 @@ module.exports = function getClient() {
       autostart: false,
       hops: 1,
       populatePubs: false
-    }
+    },
+    ebt: {
+      logging: true
+    },
   };
 
   console.log("Promising hings")
