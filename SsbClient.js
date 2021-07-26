@@ -22,7 +22,7 @@ module.exports = function getClient() {
   const config = {
     caps: { shs: Buffer.from(getCaps(), 'base64') },
     friends: {
-      hops: 1,
+      hops: 2,
       hookReplicate: false
     },
     connections: {
@@ -37,10 +37,10 @@ module.exports = function getClient() {
         dht: [{ transform: 'shs' }]
       }
     },
-    hops: 1,
+    hops: 2,
     conn: {
       autostart: false,
-      hops: 1,
+      hops: 2,
       populatePubs: false
     },
     ebt: {
