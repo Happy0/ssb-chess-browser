@@ -66,14 +66,5 @@ module.exports = function getClient() {
     }
   )
 
-  return p.then(sbot => {
-    return new Promise((resolve, reject) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(sbot);
-      }
-
-    })
-  })
+  return p;
 }
