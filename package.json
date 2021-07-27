@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/happy0/ssb-chess-browser#readme",
   "dependencies": {
-    "ssb-browser-core": "^10.0.12",
+    "ssb-browser-core": "11.1.0",
     "ssb-caps": "^1.1.0",
     "ssb-chess-data-access": "2.1.3",
     "ssb-chess-mithril": "2.0.5"

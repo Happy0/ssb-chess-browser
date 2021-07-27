@@ -68,13 +68,12 @@ module.exports = function getClient() {
 
   return p.then(sbot => {
     return new Promise((resolve, reject) => {
-      sbot.net.dhtInvite.start((err, result) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(sbot);
-        }
-      });
+      if (err) {
+        reject(err);
+      } else {
+        resolve(sbot);
+      }
+
     })
   })
 }
